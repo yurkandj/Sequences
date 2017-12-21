@@ -9,8 +9,8 @@ It also demonstrates using an ORACLE and/or PROBABILITY THEORY
 in testing and BOUNDARY (EDGE) TESTING.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Dominic Yurkanin.
+"""  # Done 1.
 
 import random
 import builtins  # Never necessary, but here to make a point about SUM
@@ -33,7 +33,7 @@ def run_test_sum_sequence():
     print('--------------------------------------------------')
 
     # ------------------------------------------------------------------
-    # TODO: 2. READ the COMMENTS and CODE in this function,
+    # Done 2
     #  asking questions as needed.
     #
     #   When you believe that you understand:
@@ -202,8 +202,16 @@ def sum_sequence(sequence):
     Type hints:
       :type sequence: list or tuple (of integers)
     """
+
+    total = 0
+
+    for k in range(len(sequence)):
+        total += sequence[k]
+
+    return total
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done 3
     #          Tests have been written for you (above).
     #
     # RESTRICTION:
@@ -217,7 +225,7 @@ def sum_sequence(sequence):
 def run_test_count_items_bigger_than():
     """ Tests the   count_items_bigger_than   function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # Done 4
     #   It TESTS the  count_items_bigger_than  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests.
     #
@@ -343,6 +351,24 @@ def run_test_count_items_bigger_than():
 
     # TO DO 4 (continued):  Add your 2 ADDITIONAL tests here:
 
+    # Test 9:
+    sequence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    threshold = 5
+    expected = 5
+    actual = count_items_bigger_than(sequence, threshold)
+    print()
+    print('Test 9 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 10:
+    sequence = [45, 84, 32, 70, -10, 40]
+    threshold = 0
+    expected = 5
+    actual = count_items_bigger_than(sequence, threshold)
+    print()
+    print('Test 10 expected:', expected)
+    print('       actual:  ', actual)
+
 
 def count_items_bigger_than(numbers, threshold):
     """
@@ -357,28 +383,33 @@ def count_items_bigger_than(numbers, threshold):
       If  numbers   is  [45, 84, 32, 70, -10, 40]
       and threshold is 45,
       then this function returns 2 (since 84 and 70 are bigger than 45).
-
       If  numbers   is  [45, 84, 32, 70, -10, 40]
       and threshold is 0,
       then this function returns 5
       (since all of the 6 numbers except -10 are bigger than 0).
-
       If  numbers   is  [45, 84, 32, 70, -10, 40]
       and threshold is -10,
       then this function still returns 5
       (since all of the 6 numbers except -10 are bigger than -10;
       note that -10 is NOT bigger than itself).
-
       If  numbers   is  [45, 84, 32, 70, -10, 40]
       and threshold is -10.00000001,
       then this function returns 6.
-
     Type hints:
       :type numbers:   list or tuple (of numbers)
       :type threshold: float
     """
+
+    total = 0
+
+    for k in range(len(numbers)):
+        if numbers[k] > threshold:
+            total += 1
+
+    return total
+
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done 5
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
@@ -386,7 +417,7 @@ def count_items_bigger_than(numbers, threshold):
 def run_test_count_positive_sines():
     """ Tests the   count_positive_sines   function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # Done 6
     #   It TESTS the  count_positive_sines  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond what we supplied.
     #
@@ -483,6 +514,13 @@ def run_test_count_positive_sines():
 
     # TO DO 6 (continued):  Add your 1 ADDITIONAL test here:
 
+    # Test 11:
+    expected = 5
+    actual = count_positive_sines([44, 32, 1, 76, 19875])
+    print()
+    print('Test 11 expected:', expected)
+    print('       actual:  ', actual)
+
 
 def count_positive_sines(numbers):
     """
@@ -490,7 +528,6 @@ def count_positive_sines(numbers):
     What goes out: Returns the number of items in the given sequence
       whose sine is positive.
     Side effects: None.
-
     Examples:  Since:
        sine(3) is about 0.14
        sine(4) is about -0.76
@@ -499,16 +536,24 @@ def count_positive_sines(numbers):
        sine(7) is about 0.66
        sine(8) is about 0.99
        sine(9) is about 0.41
-
       -- count_positive_sines([3, 4, 5, 6, 7, 8, 9])  returns 4
       -- count_positive_sines([3, 6, 8])              returns 2
       -- count_positive_sines([7, 7, 7])              returns 3
-
     Type hints:
       :type sequence: list or tuple (of numbers)
     """
+
+    total = 0
+
+    for k in range(len(numbers)):
+        if math.sin(numbers[k]) > 0:
+            total += 1
+
+    return total
+
+
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done 7
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
@@ -516,7 +561,7 @@ def count_positive_sines(numbers):
 def run_test_sum_first_n():
     """ Tests the   sum_first_n   function. """
     # ------------------------------------------------------------------
-    # TODO: 8. Implement this TEST function.
+    # Done 8
     #   It TESTS the  sum_first_n  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests.
     #
@@ -587,6 +632,20 @@ def run_test_sum_first_n():
 
     # TO DO 8 (continued):  Add your 2 ADDITIONAL tests here:
 
+    # Test 8:
+    expected = 0
+    actual = sum_first_n([48, -10, 50, 5], 0)
+    print()
+    print('Test 8 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 9:
+    expected = 0
+    actual = sum_first_n([48, -10, 50, 5], 0)
+    print()
+    print('Test 9 expected:', expected)
+    print('       actual:  ', actual)
+
 
 def sum_first_n(numbers, n):
     """
@@ -609,8 +668,16 @@ def sum_first_n(numbers, n):
       :type numbers:   list of tuple (of numbers)
       :type n: int
     """
+
+    total = 0
+
+    for k in range(n):
+        total += numbers[k]
+
+    return total
+
     # ------------------------------------------------------------------
-    # TODO: 9. Implement and test this function.
+    # Done 9
     #          Tests have been written for you (above).
     #
     # RESTRICTION:
